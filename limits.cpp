@@ -11,8 +11,8 @@ int main()
   long long n_llong = LLONG_MAX;
 
   // sizeof operator yields size of type or of variable
-  cout << "int is " << sizeof (int) << " bytes." << endl;
-  cout << "short is " << sizeof n_short << " bytes." << endl;
+  cout << "int is " << sizeof (int) << " bytes." << endl;  // for var type, brackets are required
+  cout << "short is " << sizeof n_short << " bytes." << endl;  // for var, brackets are not necessary
   cout << "long is " << sizeof n_long << " bytes." << endl;
   cout << "long long is " << sizeof n_llong << " bytes." << endl;
   cout << endl;
