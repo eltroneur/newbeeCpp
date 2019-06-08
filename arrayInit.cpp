@@ -1,6 +1,5 @@
 // arrayInit.cpp -- Init an array
 #include <iostream>
-#include <stdio.h>
 
 int main()
 {
