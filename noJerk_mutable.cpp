@@ -21,7 +21,7 @@ public:
     }
   }
 protected:
-  mutable bool m_isJerked;
+  mutable bool m_isJerked; // even in const method, this variable can be modified
 };
 
 class ill_human
@@ -44,7 +44,7 @@ public:
     }
   }
 protected:
-  bool m_isJerked;
+  bool m_isJerked; // cannot modify its value in const mtehod
 };
 
 class me : public human
@@ -53,7 +53,7 @@ public:
   virtual void jerk() const
   {
     std::cout << "I'm really want to jerk again... Just one more time!!!" << std::endl;
-    m_isJerked = true;
+    m_isJerked = true; // modified
   }
 
 };
@@ -63,7 +63,7 @@ class ill_me : public ill_human
 public:
   virtual void jerk() const
   {
-    //m_isJerk = true;
+    //m_isJerked = true; // cannot modified , Error: Assignment of read-only member
     std::cout << "I tried to jerk again, but failed!" << std::endl;
   }
 };
