@@ -14,11 +14,18 @@ public:
   virtual void read() const
   {
     std::cout << "Loading OAS file..." << std::endl;
+    readRep();
   }
 
   void compress() const
   {
     std::cout << "compressing... "  << std::endl;
+  }
+
+private:
+  void readRep() const
+  {
+    std::cout << "Repetition..." << std::endl;
   }
 };
 
@@ -35,7 +42,10 @@ int main()
 {
   ReaderBase *rb;
   GDSReader gds;
-  rb = dynamic_cast<GDSReader *>(&gds);
+  // No need this operation
+  //rb = dynamic_cast<GDSReader *>(&gds);
+  // Just static_cast
+  rb = static_cast<ReaderBase *>(&gds);
   rb->read();
 
   OASReader oas;
@@ -46,6 +56,11 @@ int main()
   //rb->compress();  // Error: class has no member named compress
   OASReader *poas = dynamic_cast<OASReader *>(rb);
   poas->compress();
+
+  ReaderBase *mp_delegate;
+  mp_delegate = &oas;
+  mp_delegate->read();
+  
 
   return 0;
 }
