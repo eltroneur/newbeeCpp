@@ -30,5 +30,7 @@ int main(int argc, char *argv[])
 
   printf("\n");
 
+  closedir(objDir);
+
   return 0;
 }
